@@ -1,0 +1,84 @@
+html, body {margin:0; height:100%; overflow:hidden;}
+
+*{
+	font-family: Consolas;
+	user-select: none;
+}
+
+.navigation {
+	position:absolute;
+	bottom:0px;
+	width:100%;
+	height:10%;
+	background:url(images/menuTexture.png) repeat bottom;
+	border-top:2px solid black;
+}
+
+#oreAnchor {
+	top:-10%;
+}
+.ore {
+	top:-10%;
+	position:absolute;
+	width:36px;
+	height:36px;
+	min-width:15%;
+	min-height:10%;
+	right:50%;
+}
+
+.menuIcon {
+	top:-5px;
+	position:absolute;
+	width:36px;
+	height:36px;
+	min-width:20%;
+	min-height:98%;
+    position: relative;
+}
+
+#upgradeSection, #inventorySection {
+	display:none;
+	width:100%;
+	height:100%;
+	position:absolute;
+	overflow-x:hidden;
+	overflow-y:scroll;
+	background:rgba(0,0,0,0);
+	border-left:2px solid black;
+	border-right:2px solid black;
+	/*text-align:center;*/
+	background:url(images/menuTexture.png) repeat bottom;
+	text-align:left;
+	color:gray;
+}
+
+.inventoryBox {
+    font-size: 8vw;
+	padding-bottom:2px;
+	padding-top:2%;
+	background-image:linear-gradient(to right, #333f4a, #4b5e70);
+	border-bottom:2px solid black;
+	text-align:left;
+}
+
+.inventoryBox button {
+	color:gray;
+	text-align:center;
+	font-size: 8vw;
+	margin-left:2%;
+	width:94.5%;
+	height:30%;
+	background-color:#333f4a;
+	background-image:linear-gradient(to right, #4b5e70, #5f788e);
+	border:2px solid black;
+	border-radius:3px;
+}
+
+.inventoryIcon {
+	height:30%;
+	width:30%;
+	position:relative;
+	float:right;
+	right:5px;
+}

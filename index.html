@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title>Ore Miner</title>
+        <link href="style.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+    	<span id="oreAnchor"></span>
+    	<div id="beltSection">
+    		<img id="img" style="width:100%; height:100%;" src="images/conveyorFast.gif"/>
+    	</div>
+
+    	<div id="upgradeSection">
+			Test<br>Test<br>Test<br>Test<br>Test
+		</div>
+
+    	<div id="inventorySection">
+    		<span id="inventoryAnchor"></span>
+
+		</div>
+
+    	<div class="navigation">
+    		<img onclick="nav('upgradeSection')" class="menuIcon" style="margin-left: 5%;" src="images/pickaxe.png"/>
+    		<img onclick="nav('beltSection')" class="menuIcon" style="margin-left: 10%;" src="images/copper3.png"/>
+    		<img onclick="nav('inventorySection')" class="menuIcon" style="margin-left: 15%;" src="images/inventory.png"/>
+    	</div>
+    </body>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="main.js"></script>
+</html>
