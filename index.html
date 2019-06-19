@@ -7,24 +7,39 @@
         <link href="style.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-    	<span id="oreAnchor"></span>
     	<div id="beltSection">
-    		<img id="img" style="width:100%; height:100%;" src="images/conveyorFast.gif"/>
+    		<img id="img" style="width:100%; height:100%; position:absolute;" src="images/conveyorFast.gif"/>
     	</div>
+    	<span id="oreAnchor"></span>
 
     	<div id="upgradeSection">
-			Test<br>Test<br>Test<br>Test<br>Test
+    		<section class="header">UPGRADES</section>
+			<span id="upgradeAnchor"></span>
+			<span class="filler">.</span> <!-- To prevent the navigation menu from being in the way -->
+		</div>
+
+    	<div id="productionSection">
+    		<section class="header">PRODUCTION</section>
+			<span id="productionAnchor"></span>
+			<span class="filler">.</span>
 		</div>
 
     	<div id="inventorySection">
+    		<section class="header">INVENTORY</section>
     		<span id="inventoryAnchor"></span>
-
+    		<span class="filler">.</span>
 		</div>
 
     	<div class="navigation">
-    		<img onclick="nav('upgradeSection')" class="menuIcon" style="margin-left: 5%;" src="images/pickaxe.png"/>
-    		<img onclick="nav('beltSection')" class="menuIcon" style="margin-left: 10%;" src="images/copper3.png"/>
-    		<img onclick="nav('inventorySection')" class="menuIcon" style="margin-left: 15%;" src="images/inventory.png"/>
+    		<img onclick="nav('upgradeSection')" class="menuIcon" style="margin-left: 1%;" src="images/pickaxe.png"/>
+    		<img onclick="nav('productionSection')" class="menuIcon" style="margin-left: 2%;" src="images/pickaxe.png"/>
+    		<img onclick="nav('beltSection')" class="menuIcon" style="margin-left: 3%;" src="images/copper3.png"/>
+    		<img onclick="nav('inventorySection')" class="menuIcon" style="margin-left: 4%;" src="images/inventory.png"/>
+    	</div>
+
+    	<div class="money">
+    		<span id="money" style="margin-left:5%; top:15%; position:relative;"></span>
+    		<img class="moneyIcon" style="margin-right: 10%; position:absolute;" src="images/money.png"/>
     	</div>
     </body>
     <script type="text/javascript" src="cordova.js"></script>
