@@ -1,14 +1,11 @@
 html, body {margin:0; height:100%; /*overflow:hidden;*/}
 
-html, body {
-  overflow-x: hidden;
-}
 body {
   position: relative;
 }
 
 *{
-	font-family: Consolas;
+	font-family: Consolas, Tahoma, Lato, Candara, Montserrat;
 	user-select: none;
 }
 
@@ -52,7 +49,7 @@ body {
 	width:36px;
 	height:36px;
 	min-width:20%;
-	min-height:98%;
+	min-height:94%;
     position: relative;
 }
 
@@ -85,8 +82,34 @@ body {
 	text-align:left;
 }
 
-.inventoryBox button {
-	color:gray;
+.greenButton {
+	color:white;
+	text-align:center;
+	font-size: 8vw;
+	margin-left:2%;
+	width:94.5%;
+	height:30%;
+	background-color:#333f4a;
+	background-image:linear-gradient(to right, #337200, #459b00);
+	border:2px solid black;
+	border-radius:3px;
+}
+
+.redButton {
+	color:white;
+	text-align:center;
+	font-size: 8vw;
+	margin-left:2%;
+	width:94.5%;
+	height:30%;
+	background-color:#333f4a;
+	background-image:linear-gradient(to right, #8e0808, #a50909);
+	border:2px solid black;
+	border-radius:3px;
+}
+
+.defaultButton {
+	color:white;
 	text-align:center;
 	font-size: 8vw;
 	margin-left:2%;
@@ -110,4 +133,16 @@ body {
 	position:relative;
 	text-align:center;
 	font-size: 16vw;
+}
+
+#ironProductBar, #copperProductBar, #leadProductBar, #tinProductBar, #titaniumProductBar, #silverProductBar, #goldProductBar, #diamondProductBar, #rubyProductBar, #jadeProductBar, #uraniumProductBar {
+	position:absolute;
+	width:0%;
+	height:5%;
+	background-color:#ff8300;
+	background-image:linear-gradient(to right, #337200, #459b00);
+	border-bottom:2px solid black;
+	border-top:2px solid black;
+	border-right:2px solid black;
+
 }
