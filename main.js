@@ -239,30 +239,33 @@ function sell(product, produced) {
 
 function createInventory (name, image, id, shopId) {
 	var auto = id + '_auto'
-	str = $.parseHTML('<div class="inventoryBox">' + name + '<img class="inventoryIcon" src="images/' + image + '.png"/><br /><span id="' + id + 'Amount"></span><br /><span id="' + shopId + 'InventoryPrice"></span><button class="defaultButton" onclick="sell(' + shopId + ')">SELL</button><button class="defaultButton" id="autoSell' + id + '">AUTO SELL</button></div>')
 
-	$("#inventoryAnchor").append(str);
+	var el = document.createElement( 'div' );
+	el.innerHTML = '<div class="inventoryBox">' + name + '<img class="inventoryIcon" src="images/' + image + '.png"/><br /><span id="' + id + 'Amount"></span><br /><span id="' + shopId + 'InventoryPrice"></span><button class="defaultButton" onclick="sell(' + shopId + ')">SELL</button><button class="defaultButton" id="autoSell' + id + '">AUTO SELL</button></div>';
+
+	byId("inventoryAnchor").appendChild(el);
 }
 
 // Using parseHTML to create onclick functions with paramters was simply not working
-// So I went with Jquery instead
-$("#autoSelliron").click(function() {boolean('iron_auto'); changeColor('autoSelliron')});
-$("#autoSellcopper").click(function() {boolean('copper_auto'); changeColor('autoSellcopper')});
-$("#autoSelllead").click(function() {boolean('lead_auto'); changeColor('autoSelllead')});
-$("#autoSelltin").click(function() {boolean('tin_auto'); changeColor('autoSelltin')});
-$("#autoSelltitanium").click(function() {boolean('titanium_auto'); changeColor('autoSelltitanium')});
-$("#autoSellsilver").click(function() {boolean('silver_auto'); changeColor('autoSellsilver')});
-$("#autoSellgold").click(function() {boolean('gold_auto'); changeColor('autoSellgold')});
-$("#autoSelldiamond").click(function() {boolean('diamond_auto'); changeColor('autoSelldiamond')});
-$("#autoSellruby").click(function() {boolean('ruby_auto'); changeColor('autoSellruby')});
-$("#autoSelljade").click(function() {boolean('jade_auto'); changeColor('autoSelljade')});
-$("#autoSelluranium").click(function() {boolean('uranium_auto'); changeColor('autoSelluranium')});
+byId('autoSelliron').addEventListener('click', function(){boolean('iron_auto'); changeColor('autoSelliron')});
+byId('autoSellcopper').addEventListener('click', function(){boolean('copper_auto'); changeColor('autoSellcopper')});
+byId('autoSelllead').addEventListener('click', function(){boolean('lead_auto'); changeColor('autoSelllead')});
+byId('autoSelltin').addEventListener('click', function(){boolean('tin_auto'); changeColor('autoSelltin')});
+byId('autoSelltitanium').addEventListener('click', function(){boolean('titanium_auto'); changeColor('autoSelltitanium')});
+byId('autoSellsilver').addEventListener('click', function(){boolean('silver_auto'); changeColor('autoSellsilver')});
+byId('autoSellgold').addEventListener('click', function(){boolean('gold_auto'); changeColor('autoSellgold')});
+byId('autoSelldiamond').addEventListener('click', function(){boolean('diamond_auto'); changeColor('autoSelldiamond')});
+byId('autoSellruby').addEventListener('click', function(){boolean('ruby_auto'); changeColor('autoSellruby')});
+byId('autoSelljade').addEventListener('click', function(){boolean('jade_auto'); changeColor('autoSelljade')});
+byId('autoSelluranium').addEventListener('click', function(){boolean('uranium_auto'); changeColor('autoSelluranium')});
 
 
 function createUpgrade (name, image, id) {
-	str = $.parseHTML('<div class="inventoryBox">' + name + '<img class="inventoryIcon" id="' + id + 'Image" src="images/' + image + '.png"/><br /><span id="' + id + 'Price"></span><br /><span id="' + id + 'Effect"></span><button class="defaultButton" onclick="upgrade(' + id + ')">PURCHASE</button></div>')
+	var auto = id + '_auto'
+	var el = document.createElement( 'div' );
+	el.innerHTML = '<div class="inventoryBox">' + name + '<img class="inventoryIcon" id="' + id + 'Image" src="images/' + image + '.png"/><br /><span id="' + id + 'Price"></span><br /><span id="' + id + 'Effect"></span><button class="defaultButton" onclick="upgrade(' + id + ')">PURCHASE</button></div>';
 
-	$("#upgradeAnchor").append(str);
+	byId("upgradeAnchor").appendChild(el);
 }
 
 
@@ -278,22 +281,23 @@ createProduction('Ruby Jewlery', 'rubyProduct', 8);
 createProduction('Jade Jewlery', 'jadeProduct', 9);
 createProduction('Uranium Pellets', 'uraniumProduct', 10);
 function createProduction (name, image, id) {
-	str = $.parseHTML('<div class="inventoryBox">' + name + '<img class="inventoryIcon" id="' + id + 'Image" src="images/' + image + '.png"/><br /><span style="font-size:7vw;" id="' + id + 'ProductAmount"></span><br /><span style="font-size:7vw;" id="' + id + 'ProductPrice"></span><br /><span id="' + id + 'ProductEffect"></span><div class="barContainer"><section id="' + image + 'Bar"></section></div><button class="defaultButton" style="margin-top:13%;" id="autoSell' + image + '">PRODUCE</button><button class="defaultButton" onclick="sell(' + id + ', true)">SELL</button></div>')
+	var el = document.createElement( 'div' );
+	el.innerHTML = '<div class="inventoryBox">' + name + '<img class="inventoryIcon" id="' + id + 'Image" src="images/' + image + '.png"/><br /><span style="font-size:7vw;" id="' + id + 'ProductAmount"></span><br /><span style="font-size:7vw;" id="' + id + 'ProductPrice"></span><br /><span id="' + id + 'ProductEffect"></span><div class="barContainer"><section id="' + image + 'Bar"></section></div><button class="defaultButton" style="margin-top:13%;" id="autoSell' + image + '">PRODUCE</button><button class="defaultButton" onclick="sell(' + id + ', true)">SELL</button></div>';
 
-	$("#productionAnchor").append(str);
+	byId("productionAnchor").appendChild(el);
 }
 
-$("#autoSellironProduct").click(function() {boolean('ironProduct_produce'); changeColor('autoSellironProduct')});
-$("#autoSellcopperProduct").click(function() {boolean('copperProduct_produce'); changeColor('autoSellcopperProduct')});
-$("#autoSellleadProduct").click(function() {boolean('leadProduct_produce'); changeColor('autoSellleadProduct')});
-$("#autoSelltinProduct").click(function() {boolean('tinProduct_produce'); changeColor('autoSelltinProduct')});
-$("#autoSelltitaniumProduct").click(function() {boolean('titaniumProduct_produce'); changeColor('autoSelltitaniumProduct')});
-$("#autoSellsilverProduct").click(function() {boolean('silverProduct_produce'); changeColor('autoSellsilverProduct')});
-$("#autoSellgoldProduct").click(function() {boolean('goldProduct_produce'); changeColor('autoSellgoldProduct')});
-$("#autoSelldiamondProduct").click(function() {boolean('diamondProduct_produce'); changeColor('autoSelldiamondProduct')});
-$("#autoSellrubyProduct").click(function() {boolean('rubyProduct_produce'); changeColor('autoSellrubyProduct')});
-$("#autoSelljadeProduct").click(function() {boolean('jadeProduct_produce'); changeColor('autoSelljadeProduct')});
-$("#autoSelluraniumProduct").click(function() {boolean('uraniumProduct_produce'); changeColor('autoSelluraniumProduct')});
+byId('autoSellironProduct').addEventListener('click', function(){boolean('ironProduct_produce'); changeColor('autoSellironProduct')});
+byId('autoSellcopperProduct').addEventListener('click', function(){boolean('copperProduct_produce'); changeColor('autoSellcopperProduct')});
+byId('autoSellleadProduct').addEventListener('click', function(){boolean('leadProduct_produce'); changeColor('autoSellleadProduct')});
+byId('autoSelltinProduct').addEventListener('click', function(){boolean('tinProduct_produce'); changeColor('autoSelltinProduct')});
+byId('autoSelltitaniumProduct').addEventListener('click', function(){boolean('titaniumProduct_produce'); changeColor('autoSelltitaniumProduct')});
+byId('autoSellsilverProduct').addEventListener('click', function(){boolean('silverProduct_produce'); changeColor('autoSellsilverProduct')});
+byId('autoSellgoldProduct').addEventListener('click', function(){boolean('goldProduct_produce'); changeColor('autoSellgoldProduct')});
+byId('autoSelldiamondProduct').addEventListener('click', function(){boolean('diamondProduct_produce'); changeColor('autoSelldiamondProduct')});
+byId('autoSellrubyProduct').addEventListener('click', function(){boolean('rubyProduct_produce'); changeColor('autoSellrubyProduct')});
+byId('autoSelljadeProduct').addEventListener('click', function(){boolean('jadeProduct_produce'); changeColor('autoSelljadeProduct')});
+byId('autoSelluraniumProduct').addEventListener('click', function(){boolean('uraniumProduct_produce'); changeColor('autoSelluraniumProduct')});
 
 setInterval(function() {
 	produce('ironProduct', 'iron');
@@ -687,11 +691,6 @@ function save() {
 	storage.oreUpgradeStage = JSON.stringify(oreUpgradeStage);
 	storage.oreArray = JSON.stringify(oreArray);
 	storage.upgradePrices = JSON.stringify(upgradePrices);
-
-
- // 	localStorage.ownedUpgrades = JSON.stringify(ownedUpgrades);
-
-
 }
 
 loadUp();
