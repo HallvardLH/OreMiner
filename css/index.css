@@ -1,0 +1,148 @@
+html, body {margin:0; height:100%; /*overflow:hidden;*/}
+
+body {
+  position: relative;
+}
+
+*{
+	font-family: Consolas, Tahoma, Lato, Candara, Montserrat;
+	user-select: none;
+}
+
+.navigation {
+	position:absolute;
+	bottom:0px;
+	width:100%;
+	height:10%;
+	background:url(../img/menuTexture.png) repeat bottom;
+	border-top:2px solid black;
+}
+
+.money {
+	color:white;
+	position:absolute;
+	font-size: 8vw;
+	bottom:10%;
+	width:100%;
+	height:8%;
+	background:url(../img/menuTexture.png) repeat bottom;
+	border-bottom:2px solid black;
+	border-top:2px solid black;
+}
+
+#oreAnchor {
+	top:-10%;
+}
+.ore {
+	top:-10%;
+	position:absolute;
+	width:36px;
+	height:36px;
+	min-width:15%;
+	min-height:10%;
+	right:50%;
+}
+
+.menuIcon, .moneyIcon {
+	top:-5px;
+	position:absolute;
+	width:36px;
+	height:36px;
+	min-width:20%;
+	min-height:94%;
+    position: relative;
+}
+
+#upgradeSection, #inventorySection, #productionSection {
+	display:none;
+	width:100%;
+	height:100%;
+	position:absolute;
+	overflow-x:hidden;
+	overflow-y:scroll;
+	background:rgba(0,0,0,0);
+	border-left:2px solid black;
+	border-right:2px solid black;
+	/*text-align:center;*/
+	background:url(../img/menuTexture.png) repeat bottom;
+	text-align:left;
+	color:gray;
+}
+
+.filler {
+	position:absolute;
+	height:19%;
+}
+.inventoryBox {
+    font-size: 8vw;
+	padding-bottom:2px;
+	padding-top:2%;
+	background-image:linear-gradient(to right, #333f4a, #4b5e70);
+	border-bottom:2px solid black;
+	text-align:left;
+}
+
+.greenButton {
+	color:white;
+	text-align:center;
+	font-size: 8vw;
+	margin-left:2%;
+	width:94.5%;
+	height:30%;
+	background-color:#333f4a;
+	background-image:linear-gradient(to right, #337200, #459b00);
+	border:2px solid black;
+	border-radius:3px;
+}
+
+.redButton {
+	color:white;
+	text-align:center;
+	font-size: 8vw;
+	margin-left:2%;
+	width:94.5%;
+	height:30%;
+	background-color:#333f4a;
+	background-image:linear-gradient(to right, #8e0808, #a50909);
+	border:2px solid black;
+	border-radius:3px;
+}
+
+.defaultButton {
+	color:white;
+	text-align:center;
+	font-size: 8vw;
+	margin-left:2%;
+	width:94.5%;
+	height:30%;
+	background-color:#333f4a;
+	background-image:linear-gradient(to right, #4b5e70, #5f788e);
+	border:2px solid black;
+	border-radius:3px;
+}
+
+.inventoryIcon {
+	height:30%;
+	width:30%;
+	position:relative;
+	float:right;
+	right:5px;
+}
+
+.header {
+	position:relative;
+	text-align:center;
+	font-size: 16vw;
+}
+
+#ironProductBar, #copperProductBar, #leadProductBar, #tinProductBar, #titaniumProductBar, #silverProductBar, #goldProductBar, #diamondProductBar, #rubyProductBar, #jadeProductBar, #uraniumProductBar {
+	position:absolute;
+	width:0%;
+	height:5%;
+	background-color:#ff8300;
+	background-image:linear-gradient(to right, #337200, #459b00);
+	border-bottom:2px solid black;
+	border-top:2px solid black;
+	border-right:2px solid black;
+
+}
