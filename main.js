@@ -1,15 +1,11 @@
-// https://kvsr.itch.io/stone - stones source
-// https://raventale.itch.io/daily-doodles-asset-pack-2 - diamonds source
-
-// Unused art
-// https://raventale.itch.io/daily-doodles-variations
-// https://raventale.itch.io/daily-doodles-pixelart-asset-pack
-// https://finalbossblues.itch.io/dark-dimension-tileset
-// https://gentlecatstudio.itch.io/rpg-items
-// https://kronbits.itch.io/matriax-free-assets
-// https://kyrise.itch.io/kyrises-free-16x16-rpg-icon-pack
-
 //ca-app-pub-3989514379219446~4664301106
+
+function createInventory (name, image, id, shopId) {
+	var auto = id + '_auto'
+	str = $.parseHTML('<div class="inventoryBox">' + name + '<img class="inventoryIcon" src="images/' + image + '.png"/><br /><span id="' + id + 'Amount"></span><br /><span id="' + shopId + 'InventoryPrice"></span><button class="defaultButton" onclick="sell(' + shopId + ')">SELL</button><button class="defaultButton" id="autoSell' + id + '">AUTO SELL</button></div>')
+
+	$("#inventoryAnchor").append(str);
+}
 
 
 /*=====================================================================================
@@ -235,13 +231,6 @@ function sell(product, produced) {
 		window[product] = 0;
 		updateValues();
 	}
-}
-
-function createInventory (name, image, id, shopId) {
-	var auto = id + '_auto'
-	str = $.parseHTML('<div class="inventoryBox">' + name + '<img class="inventoryIcon" src="images/' + image + '.png"/><br /><span id="' + id + 'Amount"></span><br /><span id="' + shopId + 'InventoryPrice"></span><button class="defaultButton" onclick="sell(' + shopId + ')">SELL</button><button class="defaultButton" id="autoSell' + id + '">AUTO SELL</button></div>')
-
-	$("#inventoryAnchor").append(str);
 }
 
 // Using parseHTML to create onclick functions with paramters was simply not working
