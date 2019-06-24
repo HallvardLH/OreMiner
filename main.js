@@ -100,7 +100,7 @@ var uranium = 0; var uranium_chance = 0.005; var uranium_price = 1000; var urani
 
 // Startup functions
 // Creating inventory boxes
-createInventory('Iron', 'iron1', 'iron', 0);
+createInventory('Iron test', 'iron1', 'iron', 0);
 createInventory('Copper', 'copper1', 'copper', 1);
 createInventory('Lead', 'lead1', 'lead', 2);
 createInventory('Tin', 'tin1', 'tin', 3);
