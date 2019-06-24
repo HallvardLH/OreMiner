@@ -172,9 +172,9 @@ async function createOre() {
 		}
 	}
 
-	str = $.parseHTML('<img class="ore" onclick="pickUp(' + iterations + ')" id="' + iterations + '" src="images/' + ore.ore + Math.ceil(Math.random() * ore.imgAmount) + '.png"/>'),
-
-	$("#oreAnchor").append(str);
+	var el = document.createElement( 'div' );
+	el.innerHTML = '<div><img class="ore" onclick="pickUp(' + iterations + ')" id="' + iterations + '" src="images/' + ore.ore + Math.ceil(Math.random() * ore.imgAmount) + '.png"/></div>';
+	byId("oreAnchor").appendChild(el);
 
 	whichOre.splice(iterations, 0, ore.ore);
 	speed.splice(iterations, 0, (Math.random() * 0.41) + 0.1);
