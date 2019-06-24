@@ -172,7 +172,7 @@ async function createOre() {
 		}
 	}
 
-	str = $.parseHTML('<img class="ore" onclick="pickUp(' + iterations + ')" id="' + iterations + '" src="img/' + ore.ore + Math.ceil(Math.random() * ore.imgAmount) + '.png"/>'),
+	str = $.parseHTML('<img class="ore" onclick="pickUp(' + iterations + ')" id="' + iterations + '" src="images/' + ore.ore + Math.ceil(Math.random() * ore.imgAmount) + '.png"/>'),
 
 	$("#oreAnchor").append(str);
 
@@ -239,7 +239,7 @@ function sell(product, produced) {
 
 function createInventory (name, image, id, shopId) {
 	var auto = id + '_auto'
-	str = $.parseHTML('<div class="inventoryBox">' + name + '<img class="inventoryIcon" src="img/' + image + '.png"/><br /><span id="' + id + 'Amount"></span><br /><span id="' + shopId + 'InventoryPrice"></span><button class="defaultButton" onclick="sell(' + shopId + ')">SELL</button><button class="defaultButton" id="autoSell' + id + '">AUTO SELL</button></div>')
+	str = $.parseHTML('<div class="inventoryBox">' + name + '<img class="inventoryIcon" src="images/' + image + '.png"/><br /><span id="' + id + 'Amount"></span><br /><span id="' + shopId + 'InventoryPrice"></span><button class="defaultButton" onclick="sell(' + shopId + ')">SELL</button><button class="defaultButton" id="autoSell' + id + '">AUTO SELL</button></div>')
 
 	$("#inventoryAnchor").append(str);
 }
@@ -260,7 +260,7 @@ $("#autoSelluranium").click(function() {boolean('uranium_auto'); changeColor('au
 
 
 function createUpgrade (name, image, id) {
-	str = $.parseHTML('<div class="inventoryBox">' + name + '<img class="inventoryIcon" id="' + id + 'Image" src="img/' + image + '.png"/><br /><span id="' + id + 'Price"></span><br /><span id="' + id + 'Effect"></span><button class="defaultButton" onclick="upgrade(' + id + ')">PURCHASE</button></div>')
+	str = $.parseHTML('<div class="inventoryBox">' + name + '<img class="inventoryIcon" id="' + id + 'Image" src="images/' + image + '.png"/><br /><span id="' + id + 'Price"></span><br /><span id="' + id + 'Effect"></span><button class="defaultButton" onclick="upgrade(' + id + ')">PURCHASE</button></div>')
 
 	$("#upgradeAnchor").append(str);
 }
@@ -278,7 +278,7 @@ createProduction('Ruby Jewlery', 'rubyProduct', 8);
 createProduction('Jade Jewlery', 'jadeProduct', 9);
 createProduction('Uranium Pellets', 'uraniumProduct', 10);
 function createProduction (name, image, id) {
-	str = $.parseHTML('<div class="inventoryBox">' + name + '<img class="inventoryIcon" id="' + id + 'Image" src="img/' + image + '.png"/><br /><span style="font-size:7vw;" id="' + id + 'ProductAmount"></span><br /><span style="font-size:7vw;" id="' + id + 'ProductPrice"></span><br /><span id="' + id + 'ProductEffect"></span><div class="barContainer"><section id="' + image + 'Bar"></section></div><button class="defaultButton" style="margin-top:13%;" id="autoSell' + image + '">PRODUCE</button><button class="defaultButton" onclick="sell(' + id + ', true)">SELL</button></div>')
+	str = $.parseHTML('<div class="inventoryBox">' + name + '<img class="inventoryIcon" id="' + id + 'Image" src="images/' + image + '.png"/><br /><span style="font-size:7vw;" id="' + id + 'ProductAmount"></span><br /><span style="font-size:7vw;" id="' + id + 'ProductPrice"></span><br /><span id="' + id + 'ProductEffect"></span><div class="barContainer"><section id="' + image + 'Bar"></section></div><button class="defaultButton" style="margin-top:13%;" id="autoSell' + image + '">PRODUCE</button><button class="defaultButton" onclick="sell(' + id + ', true)">SELL</button></div>')
 
 	$("#productionAnchor").append(str);
 }
@@ -402,7 +402,7 @@ function upgrade(id, load) {
 						length--;
 					}
 					if(length == 0) {
-						byId('2Image').src = 'img/tin1.png';
+						byId('2Image').src = 'images/tin1.png';
 						byId('2Effect').innerHTML = 'Tin';
 						if(!load) {
 							oreArray.splice(oreArray.length, 0, 'lead');
@@ -410,7 +410,7 @@ function upgrade(id, load) {
 						}
 
 					} else if(length == 1) {
-						byId('2Image').src = 'img/titanium1.png';
+						byId('2Image').src = 'images/titanium1.png';
 						byId('2Effect').innerHTML = 'Titanium';
 						if(!load) {
 							oreArray.splice(oreArray.length, 0, 'tin');
@@ -418,7 +418,7 @@ function upgrade(id, load) {
 						}
 
 					} else if(length == 2) {
-						byId('2Image').src = 'img/silver1.png';
+						byId('2Image').src = 'images/silver1.png';
 						byId('2Effect').innerHTML = 'Silver';
 						if(!load) {
 							oreArray.splice(oreArray.length, 0, 'titanium');
@@ -426,7 +426,7 @@ function upgrade(id, load) {
 						}
 
 					} else if(length == 3) {
-						byId('2Image').src = 'img/gold1.png';
+						byId('2Image').src = 'images/gold1.png';
 						byId('2Effect').innerHTML = 'Gold';
 						if(!load) {
 							oreArray.splice(oreArray.length, 0, 'silver');
@@ -434,7 +434,7 @@ function upgrade(id, load) {
 						}
 
 					} else if(length == 4) {
-						byId('2Image').src = 'img/diamond1.png'
+						byId('2Image').src = 'images/diamond1.png'
 						byId('2Effect').innerHTML = 'Diamond';
 						if(!load) {
 							oreArray.splice(oreArray.length, 0, 'gold');
@@ -442,7 +442,7 @@ function upgrade(id, load) {
 						}
 
 					} else if(length == 5) {
-						byId('2Image').src = 'img/ruby1.png'; // Placeholder
+						byId('2Image').src = 'images/ruby1.png'; // Placeholder
 						byId('2Effect').innerHTML = 'Ruby';
 						if(!load) {
 							oreArray.splice(oreArray.length, 0, 'diamond');
@@ -450,7 +450,7 @@ function upgrade(id, load) {
 						}
 
 					} else if(length == 6) {
-						byId('2Image').src = 'img/jade1.png'; // Placeholder
+						byId('2Image').src = 'images/jade1.png'; // Placeholder
 						byId('2Effect').innerHTML = 'Jade';
 						if(!load) {
 							oreArray.splice(oreArray.length, 0, 'ruby');
@@ -458,7 +458,7 @@ function upgrade(id, load) {
 						}
 
 					} else if(length == 7) {
-						byId('2Image').src = 'img/uranium1.png';
+						byId('2Image').src = 'images/uranium1.png';
 						byId('2Effect').innerHTML = 'Uranium';
 						if(!load) {
 							oreArray.splice(oreArray.length, 0, 'jade');
@@ -466,7 +466,7 @@ function upgrade(id, load) {
 						}
 
 					} else if(length == 8) {
-						byId('2Image').src = 'img/checkmark.png';
+						byId('2Image').src = 'images/checkmark.png';
 						byId('2Effect').innerHTML = 'All unlocked!';
 						if(!load) {
 							oreArray.splice(oreArray.length, 0, 'uranium');
@@ -489,7 +489,7 @@ function upgrade(id, load) {
 						length--;
 					}
 					if(length == 0) {
-						byId('3Image').src = 'img/copper1.png';
+						byId('3Image').src = 'images/copper1.png';
 						byId('3Effect').innerHTML = 'Copper';
 						if(!load) {
 							iron_autoPick = true;
@@ -497,7 +497,7 @@ function upgrade(id, load) {
 						}
 
 					} else if(length == 1) {
-						byId('3Image').src = 'img/tin1.png';
+						byId('3Image').src = 'images/tin1.png';
 						byId('3Effect').innerHTML = 'Tin';
 						if(!load) {
 							copper_autoPick = true;
@@ -505,7 +505,7 @@ function upgrade(id, load) {
 						}
 
 					} else if(length == 2) {
-						byId('3Image').src = 'img/lead1.png';
+						byId('3Image').src = 'images/lead1.png';
 						byId('3Effect').innerHTML = 'Lead';
 						if(!load) {
 							lead_autoPick = true;
@@ -513,7 +513,7 @@ function upgrade(id, load) {
 						}
 
 					} else if(length == 3) {
-						byId('3Image').src = 'img/titanium1.png';
+						byId('3Image').src = 'images/titanium1.png';
 						byId('3Effect').innerHTML = 'Titanium';
 						if(!load) {
 							tin_autoPick = true;
@@ -521,7 +521,7 @@ function upgrade(id, load) {
 						}
 
 					} else if(length == 4) {
-						byId('3Image').src = 'img/silver1.png';
+						byId('3Image').src = 'images/silver1.png';
 						byId('3Effect').innerHTML = 'Silver';
 						if(!load) {
 							titanium_autoPick = true;
@@ -529,7 +529,7 @@ function upgrade(id, load) {
 						}
 
 					} else if(length == 5) {
-						byId('3Image').src = 'img/gold1.png';
+						byId('3Image').src = 'images/gold1.png';
 						byId('3Effect').innerHTML = 'Gold';
 						if(!load) {
 							silver_autoPick = true;
@@ -537,7 +537,7 @@ function upgrade(id, load) {
 						}
 
 					} else if(length == 6) {
-						byId('3Image').src = 'img/diamond1.png';
+						byId('3Image').src = 'images/diamond1.png';
 						byId('3Effect').innerHTML = 'Diamond';
 						if(!load) {
 							gold_autoPick = true;
@@ -545,7 +545,7 @@ function upgrade(id, load) {
 						}
 
 					} else if(length == 7) {
-						byId('3Image').src = 'img/ruby1.png';
+						byId('3Image').src = 'images/ruby1.png';
 						byId('3Effect').innerHTML = 'Ruby';
 						if(!load) {
 							diamond_autoPick = true;
@@ -553,7 +553,7 @@ function upgrade(id, load) {
 						}
 
 					} else if(length == 8) {
-						byId('3Image').src = 'img/jade1.png';
+						byId('3Image').src = 'images/jade1.png';
 						byId('3Effect').innerHTML = 'Jade';
 						if(!load) {
 							ruby_autoPick = true;
@@ -561,14 +561,14 @@ function upgrade(id, load) {
 						}
 
 					} else if(length == 9) {
-						byId('3Image').src = 'img/uranium1.png';
+						byId('3Image').src = 'images/uranium1.png';
 						byId('3Effect').innerHTML = 'Uranium';
 						if(!load) {
 							jade_autoPick = true;
 							upgradePrices[id] += 200;
 						}
 					} else if(length == 10) {
-						byId('3Image').src = 'img/checkmark.png';
+						byId('3Image').src = 'images/checkmark.png';
 						byId('3Effect').innerHTML = 'All unlocked!';
 						if(!load) {
 							uranium_autoPick = true;
