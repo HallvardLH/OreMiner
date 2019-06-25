@@ -1,4 +1,4 @@
-html, body {margin:0; height:100%; /*overflow:hidden;*/}
+html, body {margin:0; height:100%; overflow:hidden;}
 
 body {
   position: relative;
@@ -9,140 +9,362 @@ body {
 	user-select: none;
 }
 
-.navigation {
-	position:absolute;
-	bottom:0px;
-	width:100%;
-	height:10%;
-	background:url(images/menuTexture.png) repeat bottom;
-	border-top:2px solid black;
+/* Mobile Styles */
+@media only screen and (max-width: 400px) {
+	body {
+		background-color: #F09A9D; /* Red */
+	}
+
+	#belt {
+		width:100%;
+		height:98%;
+		position:absolute;
+	}
+
+	.navigation {
+		position:absolute;
+		bottom:0px;
+		width:100%;
+		height:10%;
+		background:url(images/menuTexture.png) repeat bottom;
+		border-top:2px solid black;
+	}
+
+	.money {
+		color:white;
+		position:absolute;
+		font-size: 8vw;
+		bottom:10%;
+		width:100%;
+		height:8%;
+		background:url(images/menuTexture.png) repeat bottom;
+		border-bottom:2px solid black;
+		border-top:2px solid black;
+	}
+
+	#oreAnchor {
+		top:-10%;
+	}
+	.ore {
+		top:-10%;
+		position:absolute;
+		width:36px;
+		height:36px;
+		min-width:15%;
+		min-height:10%;
+		right:50%;
+	}
+
+	.menuIcon, .moneyIcon {
+		top:-5px;
+		position:absolute;
+		width:36px;
+		height:36px;
+		min-width:20%;
+		min-height:94%;
+	    position: relative;
+	}
+
+	#upgradeSection, #inventorySection, #productionSection {
+		display:none;
+		width:100%;
+		height:100%;
+		position:absolute;
+		overflow-x:hidden;
+		overflow-y:scroll;
+		background:rgba(0,0,0,0);
+		border-left:2px solid black;
+		border-right:2px solid black;
+		/*text-align:center;*/
+		background:url(images/menuTexture.png) repeat bottom;
+		text-align:left;
+		color:gray;
+	}
+
+	.filler {
+		position:absolute;
+		height:19%;
+	}
+	.inventoryBox {
+	    font-size: 8vw;
+		padding-bottom:2px;
+		padding-top:2%;
+		background-image:linear-gradient(to right, #333f4a, #4b5e70);
+		border-bottom:2px solid black;
+		text-align:left;
+	}
+
+	.greenButton {
+		color:white;
+		text-align:center;
+		font-size: 8vw;
+		margin-left:2%;
+		width:94.5%;
+		height:30%;
+		background-color:#333f4a;
+		background-image:linear-gradient(to right, #337200, #459b00);
+		border:2px solid black;
+		border-radius:3px;
+	}
+
+	.redButton {
+		color:white;
+		text-align:center;
+		font-size: 8vw;
+		margin-left:2%;
+		width:94.5%;
+		height:30%;
+		background-color:#333f4a;
+		background-image:linear-gradient(to right, #8e0808, #a50909);
+		border:2px solid black;
+		border-radius:3px;
+	}
+
+	.defaultButton {
+		color:white;
+		text-align:center;
+		font-size: 8vw;
+		margin-left:2%;
+		width:94.5%;
+		height:30%;
+		background-color:#333f4a;
+		background-image:linear-gradient(to right, #4b5e70, #5f788e);
+		border:2px solid black;
+		border-radius:3px;
+	}
+
+	.inventoryIcon {
+		height:30%;
+		width:30%;
+		position:relative;
+		float:right;
+		right:5px;
+	}
+
+	.header {
+		position:relative;
+		text-align:center;
+		font-size: 16vw;
+	}
+
+	#ironProductBar, #copperProductBar, #leadProductBar, #tinProductBar, #titaniumProductBar, #silverProductBar, #goldProductBar, #diamondProductBar, #rubyProductBar, #jadeProductBar, #uraniumProductBar {
+		position:absolute;
+		width:0%;
+		height:5%;
+		background-color:#ff8300;
+		background-image:linear-gradient(to right, #337200, #459b00);
+		border-bottom:2px solid black;
+		border-top:2px solid black;
+		border-right:2px solid black;
+
+	}
 }
 
-.money {
-	color:white;
-	position:absolute;
-	font-size: 8vw;
-	bottom:10%;
-	width:100%;
-	height:8%;
-	background:url(images/menuTexture.png) repeat bottom;
-	border-bottom:2px solid black;
-	border-top:2px solid black;
+/* Tablet Styles */
+/*@media only screen and (min-width: 401px) and (max-width: 960px) {
 }
+*/
 
-#oreAnchor {
-	top:-10%;
-}
-.ore {
-	top:-10%;
-	position:absolute;
-	width:36px;
-	height:36px;
-	min-width:15%;
-	min-height:10%;
-	right:50%;
-}
+/* Desktop Styles */
+@media only screen and (min-width: 401px) {
+  body {
+    background-color: #B2D6FF; /* Blue */
+  }
 
-.menuIcon, .moneyIcon {
-	top:-5px;
-	position:absolute;
-	width:36px;
-	height:36px;
-	min-width:20%;
-	min-height:94%;
-    position: relative;
-}
+	  /* width */
+	::-webkit-scrollbar {
+	  width: 10px;
+	}
 
-#upgradeSection, #inventorySection, #productionSection {
-	display:none;
-	width:100%;
-	height:100%;
-	position:absolute;
-	overflow-x:hidden;
-	overflow-y:scroll;
-	background:rgba(0,0,0,0);
-	border-left:2px solid black;
-	border-right:2px solid black;
-	/*text-align:center;*/
-	background:url(images/menuTexture.png) repeat bottom;
-	text-align:left;
-	color:gray;
-}
+	/* Track */
+	::-webkit-scrollbar-track {
+	  background:#333f4a;
+	  border-left:1px solid black;
+	}
+	 
+	/* Handle */
+	::-webkit-scrollbar-thumb {
+	  background:#4b5e70;
+	    border-left:1px solid black;
+	}
 
-.filler {
-	position:absolute;
-	height:19%;
-}
-.inventoryBox {
-    font-size: 8vw;
-	padding-bottom:2px;
-	padding-top:2%;
-	background-image:linear-gradient(to right, #333f4a, #4b5e70);
-	border-bottom:2px solid black;
-	text-align:left;
-}
+	/* Handle on hover */
+	::-webkit-scrollbar-thumb:hover {
+		background: #52667a; 
+	}
 
-.greenButton {
-	color:white;
-	text-align:center;
-	font-size: 8vw;
-	margin-left:2%;
-	width:94.5%;
-	height:30%;
-	background-color:#333f4a;
-	background-image:linear-gradient(to right, #337200, #459b00);
-	border:2px solid black;
-	border-radius:3px;
-}
+	.navigation {
+		display:none;
+	}
 
-.redButton {
-	color:white;
-	text-align:center;
-	font-size: 8vw;
-	margin-left:2%;
-	width:94.5%;
-	height:30%;
-	background-color:#333f4a;
-	background-image:linear-gradient(to right, #8e0808, #a50909);
-	border:2px solid black;
-	border-radius:3px;
-}
 
-.defaultButton {
-	color:white;
-	text-align:center;
-	font-size: 8vw;
-	margin-left:2%;
-	width:94.5%;
-	height:30%;
-	background-color:#333f4a;
-	background-image:linear-gradient(to right, #4b5e70, #5f788e);
-	border:2px solid black;
-	border-radius:3px;
-}
+	#upgradeSection {
+		width:25%;
+		height:100%;
+		left:0%;
+		position:absolute;
+		overflow-x:hidden;
+		overflow-y:scroll;
+		background:rgba(0,0,0,0);
+		border-left:2px solid black;
+		border-right:2px solid black;
+		/*text-align:center;*/
+		background:url(images/menuTexture.png) repeat bottom;
+		text-align:left;
+		color:gray;
+	}
 
-.inventoryIcon {
-	height:30%;
-	width:30%;
-	position:relative;
-	float:right;
-	right:5px;
-}
+	#productionSection {
+		width:25%;
+		height:100%;
+		left:25%;
+		position:absolute;
+		overflow-x:hidden;
+		overflow-y:scroll;
+		background:rgba(0,0,0,0);
+		border-left:2px solid black;
+		border-right:2px solid black;
+		/*text-align:center;*/
+		background:url(images/menuTexture.png) repeat bottom;
+		text-align:left;
+		color:gray;
+	}
 
-.header {
-	position:relative;
-	text-align:center;
-	font-size: 16vw;
-}
+	#belt {
+		width:25%;
+		height:100%;
+		left:50%;
+		position:absolute;
+	}
 
-#ironProductBar, #copperProductBar, #leadProductBar, #tinProductBar, #titaniumProductBar, #silverProductBar, #goldProductBar, #diamondProductBar, #rubyProductBar, #jadeProductBar, #uraniumProductBar {
-	position:absolute;
-	width:0%;
-	height:5%;
-	background-color:#ff8300;
-	background-image:linear-gradient(to right, #337200, #459b00);
-	border-bottom:2px solid black;
-	border-top:2px solid black;
-	border-right:2px solid black;
+	#inventorySection {
+		width:25%;
+		height:100%;
+		left:75%;
+		position:absolute;
+		overflow-x:hidden;
+		overflow-y:scroll;
+		background:rgba(0,0,0,0);
+		border-left:2px solid black;
+		border-right:2px solid black;
+		/*text-align:center;*/
+		background:url(images/menuTexture.png) repeat bottom;
+		text-align:left;
+		color:gray;
+	}
 
+	.inventoryBox {
+	    font-size: 2vw;
+		padding-bottom:2px;
+		padding-top:2%;
+		background-image:linear-gradient(to right, #333f4a, #4b5e70);
+		border-bottom:2px solid black;
+		text-align:left;
+	}
+
+	.inventoryIcon {
+		width:25%;
+		height:25%;
+		min-width:5%;
+		min-height:2.5%;
+		position:relative;
+		float:right;
+		right:5px;
+	}
+
+	.header {
+		position:relative;
+		text-align:center;
+		font-size: 3.5vw;
+	}
+
+	#oreAnchor {
+		top:-10%;
+	}
+
+	.ore {
+		top:-10%;
+		position:absolute;
+		width:6%;
+		height:13%;
+		min-width:5%;
+		min-height:2.5%;
+		right:50%;
+	}
+
+	.greenButton {
+		color:white;
+		text-align:center;
+		font-size: 2vw;
+		margin-left:2%;
+		width:94.5%;
+		height:30%;
+		background-color:#333f4a;
+		background-image:linear-gradient(to right, #337200, #459b00);
+		border:2px solid black;
+		border-radius:3px;
+	}
+
+	.redButton {
+		color:white;
+		text-align:center;
+		font-size: 2vw;
+		margin-left:2%;
+		width:94.5%;
+		height:30%;
+		background-color:#333f4a;
+		background-image:linear-gradient(to right, #8e0808, #a50909);
+		border:2px solid black;
+		border-radius:3px;
+	}
+
+	.defaultButton {
+		color:white;
+		text-align:center;
+		font-size: 2vw;
+		margin-left:2%;
+		width:94.5%;
+		height:30%;
+		background-color:#333f4a;
+		background-image:linear-gradient(to right, #4b5e70, #5f788e);
+		border:2px solid black;
+		border-radius:3px;
+	}
+
+	.money {
+		color:white;
+		position:absolute;
+		font-size: 2vw;
+		top:91.3%;
+		width:25%;
+		height:8%;
+		left:50.2%;
+		background:url(images/menuTexture.png) repeat bottom;
+		border-bottom:2px solid black;
+		border-top:2px solid black;
+	}
+
+	.menuIcon, .moneyIcon {
+		position:absolute;
+		width:22%;
+		height:100%;
+		min-width:5%;
+		min-height:2.5%;
+	    position: relative;
+	}
+
+	#ironProductBar, #copperProductBar, #leadProductBar, #tinProductBar, #titaniumProductBar, #silverProductBar, #goldProductBar, #diamondProductBar, #rubyProductBar, #jadeProductBar, #uraniumProductBar {
+		position:absolute;
+		width:0%;
+		height:5%;
+		background-color:#ff8300;
+		background-image:linear-gradient(to right, #337200, #459b00);
+		border-bottom:2px solid black;
+		border-top:2px solid black;
+		border-right:2px solid black;
+	}
+
+	.filler {
+		display:none;
+	}
 }

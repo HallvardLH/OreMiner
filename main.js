@@ -1,17 +1,4 @@
-// https://kvsr.itch.io/stone - stones source
-// https://raventale.itch.io/daily-doodles-asset-pack-2 - diamonds source
-
-// Unused art
-// https://raventale.itch.io/daily-doodles-variations
-// https://raventale.itch.io/daily-doodles-pixelart-asset-pack
-// https://finalbossblues.itch.io/dark-dimension-tileset
-// https://gentlecatstudio.itch.io/rpg-items
-// https://kronbits.itch.io/matriax-free-assets
-// https://kyrise.itch.io/kyrises-free-16x16-rpg-icon-pack
-
-//ca-app-pub-3989514379219446~4664301106
-
-
+// 'Look on my works, ye might, and despair!'
 /*=====================================================================================
 									 Helper functions
 =======================================================================================*/
@@ -77,6 +64,18 @@ function nav(section) { //Hides every section, then displayed the one we want
 	display(section);
 }
 
+function changeColor(button, custom) {
+	elem = byId(button);
+	if(custom == 'red') {
+		elem.className = 'redButton';
+	}
+	else if(elem.className == 'redButton' || elem.className == 'defaultButton' || custom == 'green') {
+		elem.className = 'greenButton';
+	}else {
+		elem.className = 'redButton';
+	}
+}
+
 /*=====================================================================================
 									 Game code
 =======================================================================================*/
@@ -100,7 +99,7 @@ var uranium = 0; var uranium_chance = 0.005; var uranium_price = 1000; var urani
 
 // Startup functions
 // Creating inventory boxes
-createInventory('Iron test', 'iron1', 'iron', 0);
+createInventory('Iron', 'iron1', 'iron', 0);
 createInventory('Copper', 'copper1', 'copper', 1);
 createInventory('Lead', 'lead1', 'lead', 2);
 createInventory('Tin', 'tin1', 'tin', 3);
@@ -122,7 +121,9 @@ var upgradePrices = [10, 50, 100, 200];
 
 // Game loops
 setInterval(function() {
-	moveOre();
+	if (!document.hidden) {
+		moveOre();
+	}
 }, 10); // Runs 100 times every second
 
 setInterval(function() {
@@ -130,15 +131,15 @@ setInterval(function() {
 }, 100); // Runs 10 times every second
 
 setInterval(function() {
-	if(window.innerWidth >= 550 || window.innerHeight <= 500){ // Checks if screen is too big for game
-
+	if (document.hidden) {
+		moveOre(true);
 	}
 	//localStorage.clear();
 	save();
 }, 1000);
 
 var oreArray = ['iron', 'copper'];
-var allOres = ['iron', 'copper', 'tin', 'lead', 'titanium', 'silver', 'gold', 'diamond', 'ruby', 'jade', 'uranium'];
+var allOres = ['iron', 'copper', 'lead', 'tin', 'titanium', 'silver', 'gold', 'diamond', 'ruby', 'jade', 'uranium'];
 var iterations = 0;
 var oreTime = 1050; // How long it takes between each ore spawning
 var oreSize = 1; // How much ore you get from each... ore
@@ -173,13 +174,17 @@ async function createOre() {
 	}
 
 	var el = document.createElement( 'div' );
-	el.innerHTML = '<div><img class="ore" onclick="pickUp(' + iterations + ')" id="' + iterations + '" src="images/' + ore.ore + Math.ceil(Math.random() * ore.imgAmount) + '.png"/></div>';
+	el.innerHTML = '<div><img draggable="false" class="ore" onclick="pickUp(' + iterations + ')" id="' + iterations + '" src="images/' + ore.ore + Math.ceil(Math.random() * ore.imgAmount) + '.png"/></div>';
 	byId("oreAnchor").appendChild(el);
 
 	whichOre.splice(iterations, 0, ore.ore);
 	speed.splice(iterations, 0, (Math.random() * 0.41) + 0.1);
 
-	byId(iterations).style.right = Math.floor(Math.random() * 66) + 10 + '%'; // A random value between 10 and 75
+	if(window.innerWidth <= 400) {
+		byId(iterations).style.right = Math.floor(Math.random() * 66) + 10 + '%'; // A random value between 10 and 75
+	} else if(window.innerWidth >= 961) {
+		byId(iterations).style.right = Math.floor(Math.random() * 13) + 28 + '%'; // A random value between 35 and 55
+	}
 	ores[iterations] = iterations;
 	iterations++;
 	oresOnScreen++;
@@ -208,10 +213,10 @@ var oresOnScreen = 0;
 var removedOres = [];
 var orePos = [-10];
 var oreRemoved = -100;
-function moveOre() {
+function moveOre(hidden) {
 	for(var i = 0 - oresOnScreen; i < ores.length; i++) { // Loops through all existing ores and moves them
 		if(removedOres[i] != 1 && byId(i) != null) {
-			if(byId(i).offsetTop > window.innerHeight-90) {
+			if(byId(i).offsetTop > window.innerHeight-70) {
 	    		var elem = document.getElementById(i);
    				elem.parentNode.removeChild(elem);
 	    		oreRemoved++;
@@ -220,14 +225,18 @@ function moveOre() {
 	    }
 	    if(byId(i) != null) { // Checking if the element still exists
 			byId(i).style.top = orePos[i] + '%' // Finds the ore and changes its top value, moving it downwards
-			orePos[i] += speed[i]; //0.19
+			if(hidden) {
+				orePos[i] += speed[i] * 100;
+			} else {
+				orePos[i] += speed[i]; //0.19
+			}
 		}
 	}
 }
 
 function sell(product, produced) {
 	product = oreArray[product];
-	if(produced) {
+	if(produced && product != undefined) {
 		product = product + 'Product';
 	}
 	if(product != undefined) {
@@ -271,8 +280,8 @@ function createUpgrade (name, image, id) {
 
 createProduction('Iron Ingot', 'ironProduct', 0);
 createProduction('Copper Ingot', 'copperProduct', 1);
-createProduction('Tin Ingot', 'tinProduct', 2);
-createProduction('Lead Ingot', 'leadProduct', 3);
+createProduction('Lead Ingot', 'leadProduct', 2);
+createProduction('Tin Ingot', 'tinProduct', 3);
 createProduction('Titanium Ingot', 'titaniumProduct', 4);
 createProduction('Silver Ingot', 'silverProduct', 5);
 createProduction('Gold Ingot', 'goldProduct', 6);
@@ -282,7 +291,7 @@ createProduction('Jade Jewlery', 'jadeProduct', 9);
 createProduction('Uranium Pellets', 'uraniumProduct', 10);
 function createProduction (name, image, id) {
 	var el = document.createElement( 'div' );
-	el.innerHTML = '<div class="inventoryBox">' + name + '<img class="inventoryIcon" id="' + id + 'Image" src="images/' + image + '.png"/><br /><span style="font-size:7vw;" id="' + id + 'ProductAmount"></span><br /><span style="font-size:7vw;" id="' + id + 'ProductPrice"></span><br /><span id="' + id + 'ProductEffect"></span><div class="barContainer"><section id="' + image + 'Bar"></section></div><button class="defaultButton" style="margin-top:13%;" id="autoSell' + image + '">PRODUCE</button><button class="defaultButton" onclick="sell(' + id + ', true)">SELL</button></div>';
+	el.innerHTML = '<div class="inventoryBox">' + name + '<img class="inventoryIcon" id="' + id + 'Image" src="images/' + image + '.png"/><br /><span id="' + id + 'ProductAmount"></span><br /><span id="' + id + 'ProductPrice"></span><br /><span id="' + id + 'ProductEffect"></span><div class="barContainer"><section id="' + image + 'Bar"></section></div><button class="defaultButton" style="margin-top:13%;" id="autoSell' + image + '">PRODUCE</button><button class="defaultButton" onclick="sell(' + id + ', true)">SELL</button></div>';
 
 	byId("productionAnchor").appendChild(el);
 }
@@ -312,18 +321,6 @@ setInterval(function() {
 	produce('jadeProduct', 'jade');
 	produce('uraniumProduct', 'uranium');
 }, 10); // Runs 10 times every second
-
-function changeColor(button, custom) {
-	elem = byId(button);
-	if(custom == 'red') {
-		elem.className = 'redButton';
-	}
-	else if(elem.className == 'redButton' || elem.className == 'defaultButton' || custom == 'green') {
-		elem.className = 'greenButton';
-	}else {
-		elem.className = 'redButton';
-	}
-}
 
 var ironProduct = 0; var ironProduct_produce = false; var ironProduct_time = 0;
 var ironProduct_increment = 20; var ironProduct_produceAmt = 10; var ironProduct_price = 15;
